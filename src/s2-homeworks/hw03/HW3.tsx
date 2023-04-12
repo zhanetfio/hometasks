@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-//import { v1 } from 'uuid'
 import s2 from '../../s1-main/App.module.css'
 import GreetingContainer from './GreetingContainer'
 
@@ -16,23 +15,25 @@ import GreetingContainer from './GreetingContainer'
 * 10 - в файле Greeting.tsx вычислить inputClass в зависимости от наличия ошибки
 * 11 - сделать стили в соответствии с дизайном
 * */
-
+const { v4 } = require("uuid");
 // types
 export type UserType = {
-    _id: any // need to fix any
-    name: any // need to fix any
+    _id: string
+    name: string
 }
 
-export const pureAddUserCallback = (name: any, setUsers: any, users: any) => { // need to fix any
-    const user = { // need to fix
+export const pureAddUserCallback = (name: string, setUsers:(value:UserType[])=>void, users: UserType[]) => { // need to fix any
+    const user = {
+        _id:v4(),
+        name
     }
     setUsers([...users, user])
 }
 
 const HW3 = () => {
-    const [users, setUsers] = useState<any>([]) // need to fix any
+    const [users, setUsers] = useState<UserType[]>([])
 
-    const addUserCallback = (name: any) => { // need to fix any
+    const addUserCallback = (name: string) => {
         pureAddUserCallback(name, setUsers, users)
     }
 
