@@ -1,3 +1,16 @@
 .loader {
     /*свг и/или анимация*/
+    margin-left: 40px;
+    border: 4px solid yellowgreen;
+    border-top: 4px solid green;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 2s linear infinite;
 }
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
