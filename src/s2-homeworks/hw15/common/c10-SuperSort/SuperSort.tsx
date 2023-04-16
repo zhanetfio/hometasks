@@ -1,11 +1,13 @@
 import React from 'react'
-import {ArrowDropDown, ArrowDropUp, SwapVertSharp} from '@material-ui/icons';
+import up from '../icons/arrow-drop-up.svg'
+import down from '../icons/arrow-drop-down.svg'
+import none from '../icons/arrows-up-down.svg'
 
 
 // добавить в проект иконки и импортировать
-const downIcon = '[\\/]'
-const upIcon = '[/\\]'
-const noneIcon = '[--]'
+const downIcon = down
+const upIcon = up
+const noneIcon = none
 
 export type SuperSortPropsType = {
     id?: string
@@ -16,7 +18,7 @@ export type SuperSortPropsType = {
 
 export const pureChange = (sort: string, down: string, up: string) => {
     // пишет студент, sort: (click) => down (click) => up (click) => '' (click) => down ...
-    return  sort === '' ? down : sort === down ? up : sort === up ? '' : down// исправить
+    return sort === '' ? down : sort === down ? up : sort === up ? '' : down
 }
 
 const SuperSort: React.FC<SuperSortPropsType> = (
@@ -42,10 +44,9 @@ const SuperSort: React.FC<SuperSortPropsType> = (
             <img
                 id={id + '-icon-' + sort}
                 src={icon}
-
+                alt={'sort'}
             />
 
-            {/*{icon} */}{/*а это убрать*/}
         </span>
     )
 }
