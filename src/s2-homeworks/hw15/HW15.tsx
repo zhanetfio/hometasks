@@ -57,19 +57,15 @@ const HW15 = () => {
                 }
             }).finally(() => {
             setLoading(false)
-                // сохранить пришедшие данные
-
-                //
-            })
+            // сохранить пришедшие данные
+        })
     }
 
     const onChangePagination = (newPage: number, newCount: number) => {
         // делает студент
-
         setPage(newPage)
         setCount(newCount)
-
-         sendQuery({page:newPage,count:newCount})
+        sendQuery({page: newPage, count: newCount})
         setSearchParams(createSearchParams({
             page: newPage.toString(),
             count: newCount.toString()
@@ -80,16 +76,14 @@ const HW15 = () => {
 
     const onChangeSort = (newSort: string) => {
         // делает студент
-
         setSort(newSort)
-         setPage(1) // при сортировке сбрасывать на 1 страницу
+        setPage(1) // при сортировке сбрасывать на 1 страницу
+        sendQuery({sort: newSort, page: 1, count: count})
 
-        // sendQuery(
         // setSearchParams(
-
         //
     }
-
+    console.log('sort: ' + sort)
     useEffect(() => {
         const params = Object.fromEntries(searchParams)
         sendQuery({page: params.page, count: params.count})
